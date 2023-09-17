@@ -20,7 +20,6 @@ public class CommandCenter : Camp
 	{
 		currentPath = _path;
 	}
-	[Button]
 	public void SpawnUnit()
 	{
 		Soldier current = SoldierGenerator.instance.InstantiateSoldier(new Vector2(transform.position.x, currentPath.transform.position.y)).GetComponent<Soldier>();

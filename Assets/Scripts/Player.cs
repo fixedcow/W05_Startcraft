@@ -11,9 +11,14 @@ public class Player : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
+	[SerializeField] private UIScore uiScore;
+	[SerializeField] private UIGold uiGold;
 	[SerializeField] private CommandCenter commandCenter;
 	[SerializeField] private List<Camp> camps;
 	[SerializeField] private List<GridTile> tiles = new List<GridTile>();
+	[SerializeField] private List<UnitProvider> providers = new List<UnitProvider>();
+	private int gold;
+	private float totalProductivity;
 	#endregion
 
 	#region PublicMethod
@@ -28,11 +33,18 @@ public class Player : MonoBehaviour
 		{
 			tile.SetOwner(this);
 		}
+		uiScore.UpdateScore(tiles.Count);
+	}
+	[Button]
+	public void SpawnSoldier()
+	{
+		commandCenter.SpawnUnit();
 	}
 	public void AddTile(GridTile _tile)
 	{
 		_tile.SetColor(SubColor);
 		tiles.Add(_tile);
+		uiScore.UpdateScore(tiles.Count);
 	}
 	public void RemoveTile(GridTile _tile)
 	{
@@ -44,10 +56,21 @@ public class Player : MonoBehaviour
 				break;
 			}
 		}
+		uiScore.UpdateScore(tiles.Count);
 	}
 	public void SetPath(Path _path)
 	{
 		commandCenter.SetPath(_path);
+	}
+	public void ProvideGold()
+	{
+		gold += tiles.Count;
+		if(uiGold != null)
+			uiGold.UpdateGold(gold);
+	}
+	public void UpdateTotalProductivity()
+	{
+
 	}
 	#endregion
 
@@ -55,6 +78,10 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		Initialize();
+	}
+	private void Update()
+	{
+		
 	}
 	#endregion
 }

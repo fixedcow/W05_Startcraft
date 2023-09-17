@@ -17,7 +17,8 @@ public class Soldier : Unit
 	#region PrivateMethod
 	private void Update()
 	{
-		transform.Translate((Vector2)transform.right * moveSpeed * Time.deltaTime);
+		//transform.Translate((Vector2)transform.right * moveSpeed * Time.deltaTime);
+		transform.position += transform.right * moveSpeed * Time.deltaTime;
 	}
 
 	protected override void CollideWithEnemy()
