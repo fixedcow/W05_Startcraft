@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using System.Linq;
 
-public class CommandCenter : MonoBehaviour
+public class CommandCenter : Unit
 {
 	#region PublicVariables
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private GameObject unitPrefab;
-	private Vector3[] points;
+	[SerializeField] private Path currentPath;
+	[SerializeField] private bool isEnemy;
 	#endregion
 
 	#region PublicMethod
-	public void SetPoints(Vector3[] _points)
-	{
-		points = _points;
-	}
+	[Button]
 	public void SpawnUnit()
 	{
-		GameObject current = Instantiate(unitPrefab, transform.position, Quaternion.identity, transform) as GameObject;
+		Soldier current = SoldierGenerator.instance.InstantiateSoldier(new Vector2(transform.position.x, currentPath.transform.position.y)).GetComponent<Soldier>();
+		current.Initialize(owner);
 	}
 	#endregion
 

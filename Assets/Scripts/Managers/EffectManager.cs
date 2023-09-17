@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EffectManager : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class EffectManager : MonoBehaviour
 
 	#region PrivateVariables
 	[SerializeField] private GameObject burstEffectPrefab;
+	private List<GameObject> burstEffects = new List<GameObject>();
 	#endregion
 
 	#region PublicMethod
 	public void InstantiateBurstEffect(Vector2 _position)
 	{
-		Instantiate(burstEffectPrefab, _position, Quaternion.identity);
+		GameObject current = GetNewBurstEffect();
+		current.transform.position = _position;
 	}
 	#endregion
 
@@ -24,6 +27,29 @@ public class EffectManager : MonoBehaviour
 	{
 		if(instance == null)
 			instance = this;
+	}
+	private GameObject GetNewBurstEffect()
+	{
+		GameObject current = null;
+		for(int i = 0; i < burstEffects.Count; ++i)
+		{
+			if (burstEffects[i].activeSelf == false)
+			{
+				current = burstEffects[i];
+				break;
+			}
+		}
+		if(current == null)
+		{
+			current = Instantiate(burstEffectPrefab, transform) as GameObject;
+			burstEffects.Add(current);
+			return current;
+		}
+		else
+		{
+			current.SetActive(true);
+			return current;
+		}
 	}
 	#endregion
 }
