@@ -17,12 +17,11 @@ public class Soldier : Unit
 	#region PrivateMethod
 	private void Update()
 	{
-		transform.Translate(transform.right * moveSpeed * Time.deltaTime);
+		transform.Translate((Vector2)transform.right * moveSpeed * Time.deltaTime);
 	}
 
 	protected override void CollideWithEnemy()
 	{
-		base.CollideWithEnemy();
 		EffectManager.instance.InstantiateBurstEffect(transform.position);
 		gameObject.SetActive(false);
 	}

@@ -24,10 +24,14 @@ public class Player : MonoBehaviour
 		{
 			camp.Initialize(this);
 		}
+		foreach(var tile in tiles)
+		{
+			tile.SetOwner(this);
+		}
 	}
 	public void AddTile(GridTile _tile)
 	{
-		_tile.SetColor(MainColor);
+		_tile.SetColor(SubColor);
 		tiles.Add(_tile);
 	}
 	public void RemoveTile(GridTile _tile)
@@ -40,6 +44,10 @@ public class Player : MonoBehaviour
 				break;
 			}
 		}
+	}
+	public void SetPath(Path _path)
+	{
+		commandCenter.SetPath(_path);
 	}
 	#endregion
 

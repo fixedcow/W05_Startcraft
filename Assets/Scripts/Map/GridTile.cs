@@ -9,10 +9,15 @@ public class GridTile : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
+	private Player owner;
 	private SpriteRenderer sr;
 	#endregion
 
 	#region PublicMethod
+	public void SetOwner(Player _owner)
+	{
+		owner = _owner;
+	}
 	public void SetColor(Color32 _color)
 	{
 		sr.DOColor(_color, 1f);
@@ -23,6 +28,19 @@ public class GridTile : MonoBehaviour
 	private void Awake()
 	{
 		TryGetComponent(out sr);
+	}
+	private void OnTriggerEnter2D(Collider2D _collision)
+	{
+		Unit unit;
+		if (_collision.TryGetComponent(out unit) == true && unit.Owner != owner)
+		{
+			if(owner != null)
+			{
+				owner.RemoveTile(this);
+			}
+			owner = unit.Owner;
+			owner.AddTile(this);
+		}
 	}
 	#endregion
 }

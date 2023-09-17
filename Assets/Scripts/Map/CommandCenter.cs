@@ -5,7 +5,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Linq;
 
-public class CommandCenter : Unit
+public class CommandCenter : Camp
 {
 	#region PublicVariables
 	#endregion
@@ -16,6 +16,10 @@ public class CommandCenter : Unit
 	#endregion
 
 	#region PublicMethod
+	public void SetPath(Path _path)
+	{
+		currentPath = _path;
+	}
 	[Button]
 	public void SpawnUnit()
 	{

@@ -12,6 +12,7 @@ public class EffectManager : MonoBehaviour
 	#region PrivateVariables
 	[SerializeField] private GameObject burstEffectPrefab;
 	private List<GameObject> burstEffects = new List<GameObject>();
+	[SerializeField] private GameObject selectedPathAnimation;
 	#endregion
 
 	#region PublicMethod
@@ -19,6 +20,10 @@ public class EffectManager : MonoBehaviour
 	{
 		GameObject current = GetNewBurstEffect();
 		current.transform.position = _position;
+	}
+	public void HighlightSelectedPath(Vector2 _position)
+	{
+		selectedPathAnimation.transform.position = _position;
 	}
 	#endregion
 

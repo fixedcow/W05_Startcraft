@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camp : Unit
+public class UIScoreManager : MonoBehaviour
 {
 	#region PublicVariables
 	#endregion
@@ -14,9 +14,5 @@ public class Camp : Unit
 	#endregion
 
 	#region PrivateMethod
-	protected override void CollideWithEnemy()
-	{
-		
-	}
 	#endregion
 }

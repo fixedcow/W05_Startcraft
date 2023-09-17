@@ -14,8 +14,17 @@ public class Path : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
+	public Path GetThisPath()
+	{
+		return this;
+	}
 	#endregion
 
 	#region PrivateMethod
+	private void OnMouseDown()
+	{
+		GameManager.instance.Player.SetPath(this);
+		EffectManager.instance.HighlightSelectedPath(transform.position);
+	}
 	#endregion
 }

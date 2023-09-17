@@ -44,9 +44,6 @@ public abstract class Unit : MonoBehaviour
 			unit.CollideWithEnemy();
 		}
 	}
-	protected virtual void CollideWithEnemy()
-	{
-
-	}
+	protected abstract void CollideWithEnemy();
 	#endregion
 }
