@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1407077946701170369}
   - component: {fileID: 5775488821064478546}
   m_Layer: 5
-  m_Name: PowerText
+  m_Name: Productivity Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 6307191428694171812}
   - component: {fileID: 8996815233894169109}
   m_Layer: 5
-  m_Name: PriceText
+  m_Name: Price Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 6586852204559923107}
   - component: {fileID: 464325295309865402}
   m_Layer: 5
-  m_Name: DurationText
+  m_Name: Timer Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 376900485735266679}
   - component: {fileID: 7943561847064314044}
   m_Layer: 5
-  m_Name: DurationText (1)
+  m_Name: Cancel Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 6556384895041080116}
   - component: {fileID: 8095029698156898336}
   m_Layer: 5
-  m_Name: LevelText
+  m_Name: Level Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 3972343213129584342}
   - component: {fileID: 5393367606513324377}
   m_Layer: 5
-  m_Name: DurationText
+  m_Name: Duration Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,6 +1069,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3408202130916344527}
     m_Modifications:
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelReinforce
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnitProvider, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6911697271579413538, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1175,6 +1203,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3408202130916344527}
     m_Modifications:
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryReinforce
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnitProvider, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583751803605481407, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
+      propertyPath: onButtonClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6911697271579413538, guid: af8b00ec453474b46abec3c788e02fbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -70,7 +70,11 @@ public class Player : MonoBehaviour
 	}
 	public void UpdateTotalProductivity()
 	{
-
+		totalProductivity = 0;
+		for (int i = 0; i < providers.Count; ++i)
+		{
+			totalProductivity += providers[i].Productivity;
+		}
 	}
 	#endregion
 
