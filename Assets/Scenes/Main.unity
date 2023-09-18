@@ -387,12 +387,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
+  m_fontSize: 36
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 36
-  m_fontSizeMax: 56
+  m_fontSizeMin: 24
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664143, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_Name
-      value: Enemy Camp Upper (1)
+      value: Enemy Camp Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
@@ -1184,7 +1184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_LocalScale.x
@@ -1232,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664143, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_Name
-      value: Enemy Camp Upper
+      value: Enemy Camp Lower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
@@ -1987,9 +1987,9 @@ RectTransform:
   m_Father: {fileID: 2144406364}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: -60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 320, y: -160}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971200088
@@ -3083,7 +3083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664143, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_Name
-      value: Player Camp Upper (1)
+      value: Player Camp Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
@@ -3149,9 +3149,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1075921800}
-  - {fileID: 548516584}
-  - {fileID: 408698232}
   - {fileID: 2066510907}
+  - {fileID: 408698232}
+  - {fileID: 548516584}
   - {fileID: 719757580}
   m_Father: {fileID: 24359164}
   m_RootOrder: 1
@@ -3306,10 +3306,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664142, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
@@ -3354,7 +3358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664143, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_Name
-      value: Enemy Camp Upper (2)
+      value: Enemy Camp Upper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
@@ -3427,7 +3431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860367233833664143, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}
       propertyPath: m_Name
-      value: Player Camp Upper (2)
+      value: Player Camp Lower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269c2a35f7b9c2b45aa3b1013e2a0875, type: 3}

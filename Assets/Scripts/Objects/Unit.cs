@@ -10,14 +10,12 @@ public abstract class Unit : MonoBehaviour
 {
 	#region PublicVariables
 	public Player Owner { get { return owner; } }
-	public int Hp { get { return hp; } }
 	#endregion
 
 	#region PrivateVariables
 	protected Player owner;
 	protected GameObject rend;
 	protected SpriteRenderer fill;
-	protected int hp;
 	#endregion
 
 	#region PublicMethod
