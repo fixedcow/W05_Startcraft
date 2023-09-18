@@ -12,6 +12,7 @@ public class EffectManager : MonoBehaviour
 	#region PrivateVariables
 	[SerializeField] private GameObject burstEffectPrefab;
 	private List<GameObject> burstEffects = new List<GameObject>();
+	[SerializeField] private GameObject destroyedEffectPrefab;
 	[SerializeField] private GameObject selectedPathAnimation;
 	#endregion
 
@@ -20,6 +21,10 @@ public class EffectManager : MonoBehaviour
 	{
 		GameObject current = GetNewBurstEffect();
 		current.transform.position = _position;
+	}
+	public void InstantiateDestroyedEffect(Vector2 _position)
+	{
+		Instantiate(destroyedEffectPrefab, _position, Quaternion.identity, transform);
 	}
 	public void HighlightSelectedPath(Vector2 _position)
 	{

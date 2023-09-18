@@ -41,7 +41,8 @@ public class Camp : Unit
 		UpdateHp();
 		if (hp <= 0)
 		{
-			EffectManager.instance.InstantiateBurstEffect(transform.position);
+			EffectManager.instance.InstantiateDestroyedEffect(transform.position);
+			CameraManager.instance.Shake();
 			gameObject.SetActive(false);
 		}
 	}

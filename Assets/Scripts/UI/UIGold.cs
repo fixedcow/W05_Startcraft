@@ -12,6 +12,7 @@ public class UIGold : MonoBehaviour
 	#region PrivateVariables
 	private TextMeshProUGUI text;
 	private int value;
+	private float textLocalPosY;
 	#endregion
 
 	#region PublicMethod
@@ -22,13 +23,13 @@ public class UIGold : MonoBehaviour
 
 		if(value < _value)
 		{
-			text.DOColor(Color.white, 0.1f).From(Color.green);
-			text.transform.DOMoveY(text.transform.position.y, 0.3f).From(text.transform.position.y + 0.05f);
+			text.DOColor(Color.white, 0.3f).From(Color.green);
+			text.transform.DOLocalMoveY(textLocalPosY, 0.3f).From(textLocalPosY + 5f);
 		}
 		else
 		{
-			text.DOColor(Color.white, 0.1f).From(Color.red);
-			text.transform.DOMoveY(text.transform.position.y, 0.3f).From(text.transform.position.y - 0.05f);
+			text.DOColor(Color.white, 0.3f).From(Color.red);
+			text.transform.DOLocalMoveY(textLocalPosY, 0.3f).From(textLocalPosY - 5f);
 		}
 		value = _value;
 		text.text = value.ToString();
@@ -39,6 +40,7 @@ public class UIGold : MonoBehaviour
 	private void Awake()
 	{
 		transform.Find("Text").TryGetComponent(out text);
+		textLocalPosY = text.transform.localPosition.y;
 	}
 	#endregion
 }
