@@ -6,6 +6,7 @@ using UnityEngine;
 public class GridTile : MonoBehaviour
 {
 	#region PublicVariables
+	public Player Owner { get { return owner; } }
 	#endregion
 
 	#region PrivateVariables

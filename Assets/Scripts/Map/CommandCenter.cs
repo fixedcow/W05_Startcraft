@@ -21,6 +21,8 @@ public class CommandCenter : Camp
 	}
 	public void SpawnUnit()
 	{
+		if (gameObject.activeSelf == false)
+			return;
 		Soldier current = SoldierGenerator.instance.InstantiateSoldier(new Vector2(transform.position.x, currentPath.transform.position.y)).GetComponent<Soldier>();
 		current.Initialize(owner);
 	}

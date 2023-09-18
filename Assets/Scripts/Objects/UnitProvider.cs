@@ -45,7 +45,8 @@ public class UnitProvider : MonoBehaviour
 		}
 		else
 		{
-			UIPopupMessage.instance.PrintMessage("골드가 부족합니다!");
+			if(owner.IsPlayer)
+				UIPopupMessage.instance.PrintMessage("골드가 부족합니다!");
 		}
 	}
 	#endregion
@@ -61,14 +62,15 @@ public class UnitProvider : MonoBehaviour
 			return;
 
 		reinforceTimer += Time.deltaTime;
-		ui.UpdateTimer(Duration - reinforceTimer);
+		if(ui != null)
+			ui.UpdateTimer(Duration - reinforceTimer);
 		if(reinforceTimer > Duration)
 		{
 			reinforceTimer = 0f;
 			++level;
-			if(ui != null)
+			isReinforcing = false;
+			if (ui != null)
 			{
-				isReinforcing = false;
 				ui.ReinforcingEnd();
 				ui.UpdateInfo(Level, Price, Duration, Productivity, GetProductivityMult(Level - 1));
 			}

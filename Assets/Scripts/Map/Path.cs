@@ -7,10 +7,11 @@ using Unity.VisualScripting;
 public class Path : MonoBehaviour
 {
 	#region PublicVariables
+	public IReadOnlyList<GridTile> Tiles { get { return tiles.AsReadOnly(); } }
 	#endregion
 
 	#region PrivateVariables
-
+	private List<GridTile> tiles = new List<GridTile>();
 	#endregion
 
 	#region PublicMethod

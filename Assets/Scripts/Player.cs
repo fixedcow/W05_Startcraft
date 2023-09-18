@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
 	[ShowInInspector] public Color32 MainColor;
 	[ShowInInspector] public Color32 SubColor;
 	public int Gold { get { return gold; } }
+	[ShowInInspector] public int TerritoryCount { get { return tiles.Count; } }
+	public IReadOnlyList<UnitProvider> Providers { get { return providers.AsReadOnly(); } }
+	public bool IsPlayer { get { return isPlayer; } }
 	#endregion
 
 	#region PrivateVariables
@@ -18,7 +21,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private List<Camp> camps;
 	[SerializeField] private List<GridTile> tiles = new List<GridTile>();
 	[SerializeField] private List<UnitProvider> providers = new List<UnitProvider>();
-	[SerializeField]private bool isPlayer;
+	[SerializeField] private bool isPlayer;
 	private int gold;
 	[ReadOnly] [ShowInInspector] private float totalProductivity;
 	private float producePower = 0f;
@@ -84,7 +87,8 @@ public class Player : MonoBehaviour
 		if(gold >= amount)
 		{
 			gold -= amount;
-			uiGold.UpdateGold(gold);
+			if (uiGold != null)
+				uiGold.UpdateGold(gold);
 			return true;
 		}
 		else
