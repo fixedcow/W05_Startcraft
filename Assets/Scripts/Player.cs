@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	#region PublicVariables
 	[ShowInInspector] public Color32 MainColor;
 	[ShowInInspector] public Color32 SubColor;
+	public int Gold { get { return gold; } }
 	#endregion
 
 	#region PrivateVariables
@@ -17,8 +18,10 @@ public class Player : MonoBehaviour
 	[SerializeField] private List<Camp> camps;
 	[SerializeField] private List<GridTile> tiles = new List<GridTile>();
 	[SerializeField] private List<UnitProvider> providers = new List<UnitProvider>();
+	[SerializeField]private bool isPlayer;
 	private int gold;
-	private float totalProductivity;
+	[ReadOnly] [ShowInInspector] private float totalProductivity;
+	private float producePower = 0f;
 	#endregion
 
 	#region PublicMethod
@@ -32,6 +35,10 @@ public class Player : MonoBehaviour
 		foreach(var tile in tiles)
 		{
 			tile.SetOwner(this);
+		}
+		foreach (var provider in providers)
+		{
+			provider.SetOwner(this);
 		}
 		uiScore.UpdateScore(tiles.Count);
 	}
@@ -68,12 +75,21 @@ public class Player : MonoBehaviour
 		if(uiGold != null)
 			uiGold.UpdateGold(gold);
 	}
-	public void UpdateTotalProductivity()
+	/// <summary>
+	/// 골드가 충분하다면 true반환. 부족하다면 false.
+	/// </summary>
+	/// <param name="amount"></param>
+	public bool RemoveGold(int amount)
 	{
-		totalProductivity = 0;
-		for (int i = 0; i < providers.Count; ++i)
+		if(gold >= amount)
 		{
-			totalProductivity += providers[i].Productivity;
+			gold -= amount;
+			uiGold.UpdateGold(gold);
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 	#endregion
@@ -82,10 +98,36 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		Initialize();
+		if(isPlayer)
+		{
+			UIProductivity.instance.SetProviders(providers);
+		}
 	}
 	private void Update()
 	{
-		
+		UpdateTotalProductivity();
+		CheckProducePowerToSpawn();
+	}
+	private void UpdateTotalProductivity()
+	{
+		totalProductivity = 0;
+		for (int i = 0; i < providers.Count; ++i)
+		{
+			totalProductivity += providers[i].Productivity;
+		}
+		if (isPlayer)
+		{
+			UIProductivity.instance.UpdateProductivity();
+		}
+	}
+	private void CheckProducePowerToSpawn()
+	{
+		producePower += totalProductivity * Time.deltaTime;
+		if(producePower > 10)
+		{
+			producePower = 0f;
+			SpawnSoldier();
+		}
 	}
 	#endregion
 }

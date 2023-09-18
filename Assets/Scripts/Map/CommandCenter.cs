@@ -12,7 +12,6 @@ public class CommandCenter : Camp
 
 	#region PrivateVariables
 	[SerializeField] private Path currentPath;
-	[SerializeField] private bool isEnemy;
 	#endregion
 
 	#region PublicMethod

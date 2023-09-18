@@ -22,11 +22,13 @@ public class UIGold : MonoBehaviour
 
 		if(value < _value)
 		{
-			text.DOColor(Color.white, 0.2f).From(Color.green);
+			text.DOColor(Color.white, 0.1f).From(Color.green);
+			text.transform.DOMoveY(text.transform.position.y, 0.3f).From(text.transform.position.y + 0.05f);
 		}
 		else
 		{
-			text.DOColor(Color.white, 0.2f).From(Color.red);
+			text.DOColor(Color.white, 0.1f).From(Color.red);
+			text.transform.DOMoveY(text.transform.position.y, 0.3f).From(text.transform.position.y - 0.05f);
 		}
 		value = _value;
 		text.text = value.ToString();
