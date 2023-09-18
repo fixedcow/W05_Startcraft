@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private List<GridTile> tiles = new List<GridTile>();
 	[SerializeField] private List<UnitProvider> providers = new List<UnitProvider>();
 	[SerializeField] private bool isPlayer;
-	private int gold;
+	[ReadOnly] [ShowInInspector] private int gold;
 	[ReadOnly] [ShowInInspector] private float totalProductivity;
 	private float producePower = 0f;
 	#endregion

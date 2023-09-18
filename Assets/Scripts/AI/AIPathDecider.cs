@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 public class AIPathDecider : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class AIPathDecider : MonoBehaviour
 	[SerializeField] List<Path> paths = new List<Path>();
 
 	private float timer;
-	[SerializeField] private float decisionDelay = 2f;
+	[SerializeField] private float decisionDelayMin = 1.2f;
+	[SerializeField] private float decisionDelayMax = 4.8f;
 	[SerializeField] private float lowestMult = 0.8f;
 	[SerializeField] private float highestMult = 0.95f;
 	#endregion
@@ -32,7 +34,7 @@ public class AIPathDecider : MonoBehaviour
 	private void Update()
 	{
 		timer += Time.deltaTime;
-		if(timer > decisionDelay )
+		if (timer > Random.Range(decisionDelayMin, decisionDelayMax))
 		{
 			timer = 0;
 			DecidePath();
@@ -40,8 +42,8 @@ public class AIPathDecider : MonoBehaviour
 	}
 	private void DecidePath()
 	{
-		paths.OrderBy(x => CalculatePathTerritoryCount(x.Tiles.ToList()));
-		float rand = Random.Range(0, 1);
+		paths = paths.OrderBy(x => CalculatePathTerritoryCount(x)).ToList();
+		float rand = Random.Range(0f, 1f);
 		if(rand < lowestMult)
 		{
 			me.SetPath(paths.First());
@@ -55,9 +57,9 @@ public class AIPathDecider : MonoBehaviour
 			me.SetPath(paths[1]);
         }
     }
-	private int CalculatePathTerritoryCount(List<GridTile> _path)
+	private int CalculatePathTerritoryCount(Path _path)
 	{
-		return _path.Where(x => x.Owner == me).Count();
+		return _path.Tiles.Count(x => x.Owner == me);
 	}
 	#endregion
 }

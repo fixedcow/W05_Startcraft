@@ -29,5 +29,22 @@ public class CommandCenter : Camp
 	#endregion
 
 	#region PrivateMethod
+	protected override void CollideWithEnemy()
+	{
+		--hp;
+		UpdateHp();
+		if (hp <= 0)
+		{
+			EffectManager.instance.InstantiateDestroyedEffect(transform.position);
+			if(owner.IsPlayer == true)
+			{
+				GameManager.instance.Defeat();
+			}
+			else
+			{
+				GameManager.instance.Victory();
+			}
+		}
+	}
 	#endregion
 }

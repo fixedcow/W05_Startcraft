@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,18 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	#region PublicMethod
+	[Button]
+	public void Victory()
+	{
+		UIGameEnd.instance.Victory();
+		Time.timeScale = 0.001f;
+	}
+	[Button]
+	public void Defeat()
+	{
+		UIGameEnd.instance.Defeat();
+		Time.timeScale = 0.001f;
+	}
 	#endregion
 
 	#region PrivateMethod

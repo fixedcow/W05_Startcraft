@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ public class AIReinforceDecider : MonoBehaviour
 	private Player other;
 
 	private float timer;
-	[SerializeField] private float decisionDelay = 3f;
-	[SerializeField] private float highestReinforceMult = 1.3f;
+	[SerializeField] private float decisionDelay = 0.2f;
+	[SerializeField] private float highestReinforceMult = 1.2f;
 	[SerializeField] private float lowestReinforceMult = 0.8f;
 	#endregion
 
@@ -39,17 +40,15 @@ public class AIReinforceDecider : MonoBehaviour
 	}
 	private void DecideReinforcement()
 	{
-		List<UnitProvider> list = me.Providers.OrderBy(x => x.Level).ToList();
+		List<UnitProvider> list = me.Providers.OrderBy(x => x.Level).Where(x => x.IsReinforcing == false).ToList();
 		UnitProvider high = list.Last();
 		UnitProvider low = list.First();
 		if (me.TerritoryCount > highestReinforceMult * other.TerritoryCount && me.Gold >= high.Price)
 		{
-			Debug.Log("high : " + me.TerritoryCount + " > " + other.TerritoryCount + " * " + highestReinforceMult);
 			high.TryReinforce();
 		}
 		else if(me.TerritoryCount > lowestReinforceMult * other.TerritoryCount && me.Gold >= low.Price)
 		{
-			Debug.Log("low : " + me.TerritoryCount + " > " + other.TerritoryCount + " * " + lowestReinforceMult);
 			low.TryReinforce();
 		}
 		// else invade.

@@ -11,7 +11,7 @@ public class Path : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	private List<GridTile> tiles = new List<GridTile>();
+	[SerializeField] private List<GridTile> tiles = new List<GridTile>();
 	#endregion
 
 	#region PublicMethod

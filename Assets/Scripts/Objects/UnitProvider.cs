@@ -10,6 +10,8 @@ public class UnitProvider : MonoBehaviour
 	[ShowInInspector] public int Price { get { return Mathf.RoundToInt(reinforcePriceBase + level * reinforcePriceMult); } }
 	[ShowInInspector] public float Duration { get { return Mathf.Round(reinforceDurationBase + level * reinforceDurationMult); } }
 	[ShowInInspector] public int Productivity { get { return isReinforcing ? 0 : productivityBase + GetProductivityMult(Level); } }
+
+	public bool IsReinforcing { get { return isReinforcing; } }
 	#endregion
 
 	#region PrivateVariables
